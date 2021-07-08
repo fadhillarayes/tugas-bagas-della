@@ -60,31 +60,19 @@ Flower.prototype.tambahan = function () {
     return `${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisakar}, dan biasaya berfungsi sebagai ${this.fungsi_bunga}.`
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-const Ketapang = new Tree('Ketapang', 'berkayu', '10 m', 'dikotil', 'tunggang', 'hutan tropis');
+const Ketapang = new Tree('Ketapang', 'berkayu', '10 m', 'dikotil', 'tunggang', 'tanaman peneduh');
 console.log(Ketapang.perkenalan());
 console.log(Ketapang.detail());
 console.log(Ketapang.tambahan());
 console.log("-------------------------------------------");
 
-const Mawar = new Flower('Mawar', 'batang berduri', '50 cm', 'dikotil', 'tunggang', 'tempat yang tidak terekspos cahaya matahari langsung');
+const Mawar = new Flower('Mawar', 'batang berduri', '50 cm', 'dikotil', 'tunggang', 'tanaman hias');
 console.log(Mawar.perkenalan());
 console.log(Mawar.detail());
 console.log(Mawar.tambahan());
 console.log("-------------------------------------------");
 
-const Rumput = new Grass('Rumput', 'herba', '20 cm', 'monokotil', 'serabut', 'tempat yang tidak terawat dan terekspos cahaya matahari langsung');
+const Rumput = new Grass('Rumput', 'herba', '20 cm', 'monokotil', 'serabut', 'tanaman liar');
 console.log(Rumput.perkenalan());
 console.log(Rumput.detail());
 console.log(Rumput.tambahan());

@@ -7,13 +7,14 @@ class plant {
     }
 
     perkenalan() {
-        return console.log(`1. Nama tanaman: ${this._nama}\n2. Jenis tanaman : ${this.Jenis}\n3. Tinggi tanaman : ${this.Tinggi}\n4. Tipe tanaman : ${this.Tipe}`)
+        return `1. Nama tanaman: ${this._nama}\n2. Jenis tanaman : ${this.Jenis}\n3. Tinggi tanaman : ${this.Tinggi}\n4. Tipe tanaman : ${this.Tipe}`
     }
 
     detail() {
-        return console.log(`${this._nama} merupakan tanaman ${this.Jenis} dengan tinggi batang mencapai ${this.Tinggi}. ${this._nama} tergolong ke dalam kelompok ${this.Tipe}.`)
+        return `${this._nama} merupakan tanaman ${this.Jenis} dengan tinggi batang mencapai ${this.Tinggi}. ${this._nama} tergolong ke dalam kelompok ${this.Tipe}.`
     }
 }
+
 
 class Tree extends plant {
     constructor(_nama, Jenis, Tinggi, Tipe, _jenisAkar, fungsi_pohon) {
@@ -27,9 +28,13 @@ class Tree extends plant {
     }
 
     tree_detail() {
-        return console.log(`${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisAkar}, dan biasanya pohon ini digunakan ${this.fungsi_pohon}.`)
+        return `${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisAkar}, dan biasanya berfungsi sebagai ${this.fungsi_pohon}.`
     }
 }
+
+Tree.prototype.constructor = Tree
+// console.log(Tree.prototype.constructor);
+Tree.prototype = Object.create(plant.prototype)
 
 class Grass extends plant {
     constructor(_nama, Jenis, Tinggi, Tipe, _jenisAkar, fungsi_rumput) {
@@ -43,9 +48,12 @@ class Grass extends plant {
     }
 
     grass_detail() {
-        return console.log(`${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisAkar}, dan biasanya rumput ini digunakan ${this.fungsi_rumput}.`)
+        return `${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisAkar}, dan biasanya berfungsi sebagai ${this.fungsi_rumput}.`
     }
 }
+Grass.prototype.constructor = Grass
+// console.log(Grass.prototype.constructor);
+Grass.prototype = Object.create(plant.prototype)
 
 class Flower extends plant {
     constructor(_nama, Jenis, Tinggi, Tipe, _jenisAkar, fungsi_bunga) {
@@ -59,27 +67,27 @@ class Flower extends plant {
     }
 
     flower_detail() {
-        return console.log(`${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisAkar}, dan biasanya pohon ini digunakan ${this.fungsi_bunga}.`)
+        return `${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisAkar}, dan biasanya berfungsi sebagai ${this.fungsi_bunga}.`
     }
 }
 
+Flower.prototype.constructor = Flower
+// console.log(Flower.prototype.constructor);
+Flower.prototype = Object.create(plant.prototype)
 
-
-
-
-const Ketapang = new Tree('Ketapang', 'berkayu', '10 m', 'dikotil', 'tunggang', 'Berbuah');
+const Ketapang = new Tree('Ketapang', 'berkayu', '10 m', 'dikotil', 'tunggang', 'tempat berteduh');
 console.log(Ketapang.perkenalan());
 console.log(Ketapang.detail());
 console.log(Ketapang.tree_detail());
 console.log("-------------------------------------------");
 
-const Mawar = new Flower('Mawar', 'batang berduri', '50 cm', 'dikotil', 'tunggang', 'tempat yang tidak terekspos cahaya matahari langsung');
+const Mawar = new Flower('Mawar', 'batang berduri', '50 cm', 'dikotil', 'tunggang', 'tanaman hias');
 console.log(Mawar.perkenalan());
 console.log(Mawar.detail());
 console.log(Mawar.flower_detail());
 console.log("-------------------------------------------");
 
-const Rumput = new Grass('Rumput', 'herba', '20 cm', 'monokotil', 'serabut', 'tempat yang tidak terawat dan terekspos cahaya matahari langsung');
+const Rumput = new Grass('Rumput', 'herba', '20 cm', 'monokotil', 'serabut', 'tanaman liar');
 console.log(Rumput.perkenalan());
 console.log(Rumput.detail());
 console.log(Rumput.grass_detail());
