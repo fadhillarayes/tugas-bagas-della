@@ -13,37 +13,79 @@ plant.prototype.detail = function () {
     return `${this._nama} merupakan tanaman ${this.Jenis} dengan tinggi batang mencapai ${this.Tinggi}. ${this._nama} tergolong ke dalam kelompok ${this.Tipe}.`
 }
 
-function tropical(_nama, Jenis, Tinggi, Tipe, _jenisakar, tempatHidup) {
+function Tree(_nama, Jenis, Tinggi, Tipe, _jenisakar, fungsi_pohon) {
 
-    plant.call(this,_nama,Jenis,Tinggi,Tipe)
+    plant.call(this, _nama, Jenis, Tinggi, Tipe)
     this._jenisakar = _jenisakar
-    this.tempatHidup = tempatHidup
+    this.fungsi_pohon = fungsi_pohon
 }
 
-tropical.prototype = Object(plant.prototype)
+Tree.prototype.constructor = Tree
+console.log(Tree.prototype.constructor)
+Tree.prototype = Object.create(plant.prototype)
 
-tropical.prototype.tambahan = function () {
-    return `${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisakar}, dan hidup di ${this.tempatHidup}.`
+Tree.prototype.tambahan = function () {
+    return `${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisakar}, dan biasaya berfungsi sebagai ${this.fungsi_pohon}.`
 }
 
-console.log(tropical.prototype.constructor)
-tropical.prototype.constructor = tropical
-console.log(tropical.prototype.constructor)
 
-const Tree = new tropical('Ketapang', 'berkayu', '10 m', 'dikotil', 'tunggang', 'hutan tropis');
-console.log(Tree.perkenalan());
-console.log(Tree.detail());
-console.log(Tree.tambahan());
+function Grass(_nama, Jenis, Tinggi, Tipe, _jenisakar, fungsi_rumput) {
+
+    plant.call(this, _nama, Jenis, Tinggi, Tipe)
+    this._jenisakar = _jenisakar
+    this.fungsi_rumput = fungsi_rumput
+}
+
+Grass.prototype.constructor = Grass
+console.log(Grass.prototype.constructor);
+Grass.prototype = Object.create(plant.prototype)
+
+Grass.prototype.tambahan = function () {
+    return `${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisakar}, dan biasaya berfungsi sebagai ${this.fungsi_rumput}.`
+}
+
+
+function Flower(_nama, Jenis, Tinggi, Tipe, _jenisakar, fungsi_bunga) {
+
+    plant.call(this, _nama, Jenis, Tinggi, Tipe)
+    this._jenisakar = _jenisakar
+    this.fungsi_bunga = fungsi_bunga
+}
+
+Flower.prototype.constructor = Flower
+console.log(Flower.prototype.constructor);
+Flower.prototype = Object.create(plant.prototype)
+
+Flower.prototype.tambahan = function () {
+    return `${this._nama} merupakan salah satu tumbuhan ${this.Jenis} dengan tinggi ${this.Tinggi}. ${this._nama} tergolong ke tumbuhan ${this.Tipe}, berakar ${this._jenisakar}, dan biasaya berfungsi sebagai ${this.fungsi_bunga}.`
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Ketapang = new Tree('Ketapang', 'berkayu', '10 m', 'dikotil', 'tunggang', 'hutan tropis');
+console.log(Ketapang.perkenalan());
+console.log(Ketapang.detail());
+console.log(Ketapang.tambahan());
 console.log("-------------------------------------------");
 
-const Flower = new tropical('Mawar', 'batang berduri', '50 cm', 'dikotil', 'tunggang', 'tempat yang tidak terekspos cahaya matahari langsung');
-console.log(Flower.perkenalan());
-console.log(Flower.detail());
-console.log(Flower.tambahan());
+const Mawar = new Flower('Mawar', 'batang berduri', '50 cm', 'dikotil', 'tunggang', 'tempat yang tidak terekspos cahaya matahari langsung');
+console.log(Mawar.perkenalan());
+console.log(Mawar.detail());
+console.log(Mawar.tambahan());
 console.log("-------------------------------------------");
 
-const Grass = new tropical('Rumput', 'herba', '20 cm', 'monokotil', 'serabut', 'tempat yang tidak terawat dan terekspos cahaya matahari langsung');
-console.log(Grass.perkenalan());
-console.log(Grass.detail());
-console.log(Grass.tambahan());
+const Rumput = new Grass('Rumput', 'herba', '20 cm', 'monokotil', 'serabut', 'tempat yang tidak terawat dan terekspos cahaya matahari langsung');
+console.log(Rumput.perkenalan());
+console.log(Rumput.detail());
+console.log(Rumput.tambahan());
 console.log("-------------------------------------------");
